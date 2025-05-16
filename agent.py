@@ -38,7 +38,7 @@ class GraphQLAgent:
         self.llm = AzureOpenAI(
             api_version=api_version,
             azure_endpoint=endpoint,
-            azure_ad_token_provider=self.credentials,
+            api_key="2EG3UK4YuF8uL37fNQTTE38RvcCUuxnDe49pKkuoY2I41a5hHcrGJQQJ99BEACYeBjFXJ3w3AAABACOGxv4A",
             temperature=0,
         )
 
