@@ -29,7 +29,7 @@ prompt = """
 
 class GraphQLAgent:
     def __init__(self):
-        api_key = os.getenv("OPENAI_API_KEY","api-key")
+        api_key = os.getenv("OPENAI_API_KEY","YOUR_API_KEY_HERE")
         api_version = os.getenv("OPENAI_API_VERSION")
         endpoint = os.getenv("OPENAI_API_ENDPOINT")
 
