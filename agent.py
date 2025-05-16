@@ -29,21 +29,21 @@ prompt = """
 
 class GraphQLAgent:
     def __init__(self):
-        api_key = "2EG3UK4YuF8uL37fNQTTE38RvcCUuxnDe49pKkuoY2I41a5hHcrGJQQJ99BEACYeBjFXJ3w3AAABACOGxv4A"
-        api_version = "2024-12-01-preview"
-        endpoint = "https://aideveloper-assessment.openai.azure.com/"
+        api_key = os.getenv("OPENAI_API_KEY","api-key")
+        api_version = os.getenv("OPENAI_API_VERSION")
+        endpoint = os.getenv("OPENAI_API_ENDPOINT")
 
-        self.creadentials = AzureKeyCredential(api_key)
+        self.credentials = AzureKeyCredential(api_key)
         
         self.llm = AzureOpenAI(
             api_version=api_version,
-            azure_endpoinnt=endpoint,
+            azure_endpoint=endpoint,
             azure_ad_token_provider=self.credentials,
             temperature=0,
         )
 
-        self.graphql_url = "https://jluatgraphqlapi-atc2asbnb5gxbehw.westeurope-01.azurewebsites.net/api/tenancy/373daf38-e716-4097-81cc-4f1f1dc99820/graphql-v2"
-        self.schema = self._fetch_schema()
+        self.graphql_url = os.getenv("GRAPHQL_API_URL")
+        self.schema = self.fetch_schema()
 
     
     def fetch_schema(self) -> str:
